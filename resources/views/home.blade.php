@@ -69,6 +69,13 @@
     </div>
 </section>
 
+<!-- SVG Divider -->
+<div class="relative -mt-1">
+    <svg class="absolute top-0 left-0 w-full" viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,0 C600,150 800,0 1440,150 L1440,0 L0,0 Z"></path>
+    </svg>
+</div>
+
 <!-- Services Section -->
 <section id="services" class="py-20 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 md:px-6">
@@ -101,6 +108,13 @@
     </div>
 </section>
 
+<!-- SVG Divider -->
+<div class="relative -mt-1">
+    <svg class="absolute top-0 left-0 w-full" viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,0 C600,150 800,0 1440,150 L1440,0 L0,0 Z"></path>
+    </svg>
+</div>
+
 <!-- Our Work Section -->
 <section id="work" class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 md:px-6">
@@ -130,6 +144,13 @@
     </div>
 </section>
 
+<!-- SVG Divider -->
+<div class="relative -mt-1">
+    <svg class="absolute top-0 left-0 w-full" viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,0 C600,150 800,0 1440,150 L1440,0 L0,0 Z"></path>
+    </svg>
+</div>
+
 <!-- Testimonials Section -->
 <section id="testimonials" class="py-20 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 md:px-6">
@@ -141,27 +162,44 @@
             </p>
         </div>
 
-        <!-- Testimonials Grid -->
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ([
-                ['avatar' => 'client1.jpg', 'name' => 'Richard Appiah', 'role' => 'CEO, Appsy Ltd.', 'quote' => 'Working with Danix Solutions was one of the best business decisions we made. Our website looks and performs incredibly.'],
-                ['avatar' => 'client2.jpg', 'name' => 'Sarah Boateng', 'role' => 'Marketing Lead, Ghana Events', 'quote' => 'They brought our vision to life! The team was professional, timely, and extremely creative.'],
-                ['avatar' => 'client3.jpg', 'name' => 'Michael Osei', 'role' => 'Founder, LearnXpress', 'quote' => 'We saw instant results in our engagement after launching with Danix. They understand the digital space better than most.'],
-            ] as $index => $testimonial)
-                <div class="bg-white rounded-lg p-6 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="flex items-center mb-4">
-                        <img src="{{ asset('images/testimonials/' . $testimonial['avatar']) }}" alt="{{ $testimonial['name'] }}" class="w-14 h-14 rounded-full mr-4 object-cover">
-                        <div>
-                            <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial['name'] }}</h4>
-                            <span class="text-sm text-gray-500">{{ $testimonial['role'] }}</span>
+        <!-- Swiper Container -->
+        <div class="swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+
+                @foreach ([
+                    ['avatar' => 'client1.jpg', 'name' => 'Richard Appiah', 'role' => 'CEO, Appsy Ltd.', 'quote' => 'Working with Danix Solutions was one of the best business decisions we made. Our website looks and performs incredibly.'],
+                    ['avatar' => 'client2.jpg', 'name' => 'Sarah Boateng', 'role' => 'Marketing Lead, Ghana Events', 'quote' => 'They brought our vision to life! The team was professional, timely, and extremely creative.'],
+                    ['avatar' => 'client3.jpg', 'name' => 'Michael Osei', 'role' => 'Founder, LearnXpress', 'quote' => 'We saw instant results in our engagement after launching with Danix. They understand the digital space better than most.'],
+                ] as $index => $testimonial)
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-lg p-6 shadow hover:shadow-lg transition mx-4">
+                            <div class="flex items-center mb-4">
+                                <img src="{{ asset('images/testimonials/' . $testimonial['avatar']) }}" alt="{{ $testimonial['name'] }}" class="w-14 h-14 rounded-full mr-4 object-cover">
+                                <div>
+                                    <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial['name'] }}</h4>
+                                    <span class="text-sm text-gray-500">{{ $testimonial['role'] }}</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-600 text-sm italic">"{{ $testimonial['quote'] }}"</p>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-sm italic">"{{ $testimonial['quote'] }}"</p>
-                </div>
-            @endforeach
+                @endforeach
+
+            </div>
+
+            <!-- Pagination Dots -->
+            <div class="swiper-pagination mt-6"></div>
         </div>
     </div>
 </section>
+
+
+<!-- SVG Divider -->
+<div class="relative -mt-1">
+    <svg class="absolute top-0 left-0 w-full" viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,0 C600,150 800,0 1440,150 L1440,0 L0,0 Z"></path>
+    </svg>
+</div>
 
 <!-- Team Section -->
 <section id="team" class="py-20 bg-white">
@@ -198,6 +236,13 @@
     </div>
 </section>
 
+<!-- SVG Divider -->
+<div class="relative -mt-1">
+    <svg class="absolute top-0 left-0 w-full" viewBox="0 0 1440 150" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,0 C600,150 800,0 1440,150 L1440,0 L0,0 Z"></path>
+    </svg>
+</div>
+
 <!-- Contact Section -->
 <section id="contact" class="py-20 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 md:px-6">
@@ -219,7 +264,7 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold text-gray-800 mb-1">Phone</h4>
-                    <p><a href="tel:+233501027131" class="text-blue-600 hover:underline">+233 50 102 7131</a></p>
+                    <p><a href="tel:+233501027131" class="text-blue-600 hover:underline">+233 24 016 1959</a></p>
                 </div>
                 <div>
                     <h4 class="text-lg font-semibold text-gray-800 mb-1">Location</h4>
@@ -229,7 +274,7 @@
 
             <!-- Contact Form -->
             <div data-aos="fade-left">
-                <form action="{{ route('contact.submit') }}" method="POST" class="space-y-4">
+                <form action="{{ route('contact') }}" method="POST" class="space-y-4">
                     @csrf
                     <div>
                         <input type="text" name="name" placeholder="Your Name" required

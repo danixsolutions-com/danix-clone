@@ -42,7 +42,6 @@
         &copy; {{ date('Y') }} Danix Solutions. All rights reserved.
     </div>
 </footer>
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-1o8z5Z3b7k5d9f4e5j6a5c5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e5d5f5e
-        integrity="sha512-1o8z5Z3b7k5d9f4e5j6a5c    
+        integrity="sha512-1o8z5Z3b7k5d9f4e5j6a5c >
     </script>

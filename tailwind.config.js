@@ -7,7 +7,11 @@ module.exports = {
   "./vendor/filament/**/*.blade.php",
 ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };
