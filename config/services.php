@@ -22,6 +22,12 @@ return [
         'key' => env('RESEND_KEY'),
     ],
 
+    'arkesel' => [
+    'key' => env('ARKESEL_API_KEY'),
+    'sender_id' => env('ARKESEL_SENDER_ID'),
+],
+
+
     'ses' => [
         'key' => env('AWS_ACCESS_KEY_ID'),
         'secret' => env('AWS_SECRET_ACCESS_KEY'),

@@ -13,34 +13,26 @@
 </section>
 
 <!-- Portfolio Grid Section -->
+@php
+    $projects = \App\Models\Portfolio::latest()->get();
+@endphp
+
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 md:px-6">
         <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-            @foreach ([
-                ['image' => 'project1.jpg', 'link' => '#'],
-                ['image' => 'project2.jpg', 'link' => '#'],
-                ['image' => 'project3.jpg', 'link' => '#'],
-                ['image' => 'project4.jpg', 'link' => '#'],
-                ['image' => 'project5.jpg', 'link' => '#'],
-                ['image' => 'project6.jpg', 'link' => '#'],
-            ] as $index => $project)
-                <a
-                    href="{{ $project['link'] }}"
-                    target="_blank"
-                    class="block group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105"
-                    data-aos="zoom-in"
-                    data-aos-delay="{{ $index * 100 }}"
-                >
-                    <img
-                        src="{{ asset('images/portfolio/' . $project['image']) }}"
-                        alt="Project {{ $index + 1 }}"
-                        class="w-full h-64 object-cover"
-                    >
+            @foreach ($projects as $index => $project)
+                <a href="{{ $project->link ?? '#' }}" target="_blank"
+                   class="block group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition transform hover:scale-105"
+                   data-aos="zoom-in" data-aos-delay="{{ $index * 100 }}">
+                    <img src="{{ asset('storage/portfolio/' . $project->image) }}"
+                         alt="{{ $project->title }}"
+                         class="w-full h-64 object-cover">
                 </a>
             @endforeach
         </div>
     </div>
 </section>
+
 
 <!-- Call-to-Action Section -->
 <section class="py-20 bg-blue-600 text-white text-center" data-aos="zoom-in">

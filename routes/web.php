@@ -1,30 +1,22 @@
 <?php
 
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\TestimonialController;
 use Illuminate\Support\Facades\Route;
 
+// Home - should load testimonials dynamically
+Route::get('/', [TestimonialController::class, 'index'])->name('home');
 
-
-Route::get('/services', [ServiceController::class, 'index'])->name('services');
-Route::get('/team', [TeamController::class, 'index'])->name('team');
-
-Route::view('/', 'home')->name('home');
+// Static Pages
 Route::view('/portfolio', 'pages.portfolio')->name('portfolio');
 Route::view('/about', 'pages.about')->name('about');
 Route::view('/contact', 'pages.contact')->name('contact');
-Route::post('/contact', function (Request $request) {
-    $request->validate([
-        'name' => 'required',
-        'email' => 'required|email',
-        'subject' => 'required',
-        'message' => 'required',
-    ]);
 
-    dd($request->all());
-    // For now, just log or dump the message (later, send mail)
-    // Mail::to('info@danixsolutions.com')->send(new ContactMail(...));
+// Dynamic Pages
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::get('/team', [TeamController::class, 'index'])->name('team');
 
-    return back()->with('success', 'Your message has been sent successfully!');
-})->name('contact.store');
+// Contact Form Submission
+Route::post('/contact', [ContactMessageController::class, 'store'])->name('contact.store');

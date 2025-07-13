@@ -18,7 +18,7 @@
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
             @foreach ($teamMembers as $index => $member)
     <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-        <img src="{{ asset('storage/team/' . $member->image) : asset('images/team/' . $member->image) }}" alt="{{ $member->name }}" class="w-full h-64 object-cover rounded-md mb-4">
+<img src="{{ file_exists(public_path('storage/team/' . $member->image)) ? asset('storage/team/' . $member->image) : asset('images/team/' . $member->image) }}" alt="{{ $member->name }}" class="w-full h-64 object-cover rounded-md mb-4">
         <h3 class="text-xl font-semibold text-gray-800">{{ $member->name }}</h3>
         <p class="text-sm text-blue-600 mb-2">{{ $member->role }}</p>
         <p class="text-gray-600 text-sm mb-4">{{ $member->bio }}</p>

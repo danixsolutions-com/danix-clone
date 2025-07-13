@@ -8,6 +8,7 @@
 
         {{-- Desktop Menu --}}
         <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600 transition">Home</a>
             <a href="{{ route('about') }}" class="text-gray-700 hover:text-blue-600 transition">About</a>
             <a href="{{ route('services') }}" class="text-gray-700 hover:text-blue-600 transition">Services</a>
             <a href="{{ route('portfolio') }}" class="text-gray-700 hover:text-blue-600 transition">Portfolio</a>

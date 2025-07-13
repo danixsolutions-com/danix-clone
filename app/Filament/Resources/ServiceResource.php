@@ -6,6 +6,7 @@ use App\Filament\Resources\ServiceResource\Pages;
 use App\Filament\Resources\ServiceResource\RelationManagers;
 use App\Models\Service;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -23,18 +24,26 @@ class ServiceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
+   public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            TextInput::make('icon')
+                ->label('Emoji Icon')
+                ->placeholder('e.g. 💻')
+                ->maxLength(10),
 
-                //make icon, title, description
-                Files::make('icon'),
-                TextInput::make('title'),
-                Textarea::make('description'),
+            FileUpload::make('icon_path')
+                ->label('SVG Icon')
+                ->directory('services/icons')
+                ->acceptedFileTypes(['image/svg+xml'])
+                ->preserveFilenames()
+                ->maxSize(512),
 
-            ]);
-    }
+            TextInput::make('title')->required(),
+            TextInput::make('desc')->label('Description')->required(),
+        ]);
+}
 
     public static function table(Table $table): Table
     {

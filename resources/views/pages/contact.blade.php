@@ -49,6 +49,8 @@
                 <input type="email" name="email" placeholder="Your Email" required
                     class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
 
+                    <input type="text" name="phone" placeholder="Your Phone" required
+                    class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">    
                 <input type="text" name="subject" placeholder="Subject" required
                     class="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none">
 

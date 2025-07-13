@@ -65,6 +65,14 @@ return [
     |
     */
 
+
+'aliases' => [
+    // ... other aliases
+    'ArkeselService' => App\Services\ArkeselService::class,
+],
+
+
+
     'timezone' => 'UTC',
 
     /*

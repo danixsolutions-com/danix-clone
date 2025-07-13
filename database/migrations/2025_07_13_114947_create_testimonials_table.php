@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('testimonials', function (Blueprint $table) {
             $table->id();
-             $table->string('icon')->nullable(); // You can store emoji or icon HTML class
-             $table->string('icon_path')->nullable(); // store SVG path
-
-    $table->string('title');
-    $table->text('description');
+             $table->string('name');
+    $table->string('role')->nullable();
+    $table->text('message');
+    $table->string('image')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('testimonials');
     }
 };

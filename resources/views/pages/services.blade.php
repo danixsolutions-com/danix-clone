@@ -17,7 +17,11 @@
         <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             @foreach ($services as $index => $service)
                 <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="text-4xl mb-4">{{ $service->icon }}</div>
+@if ($service->icon_path)
+    <img src="{{ asset('storage/' . $service->icon_path) }}" alt="Icon" class="w-10 h-10 mb-4">
+@else
+    <div class="text-4xl mb-4">{{ $service->icon ?? '💼' }}</div>
+@endif
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $service->title }}</h3>
                     <p class="text-gray-600 text-sm">{{ $service->description }}</p>
                 </div>

@@ -38,6 +38,12 @@
     <meta name="twitter:title" content="Danix Solutions - Innovative Digital Solutions">
     <meta name="twitter:description" content="Empowering brands through innovative digital solutions.">
     <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
+
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
 </head>
 
 
@@ -143,7 +149,7 @@
         document.addEventListener("DOMContentLoaded", () => {
             new Swiper('.swiper', {
                 loop: true,
-                autoplay: { delay: 4000 },
+                autoplay: { delay: 5000 },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -185,6 +191,16 @@
             window.addEventListener("scroll", activateLink);
         });
     </script>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 
 </body>
 

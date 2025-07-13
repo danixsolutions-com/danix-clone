@@ -48,7 +48,9 @@ class TeamMemberResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('image')->disk('public')->directory('team')->rounded(),
+ImageColumn::make('image')
+    ->disk('public') // Uses public disk (linked to storage/app/public)
+    ->rounded(),
                 TextColumn::make('name')->searchable()->sortable(),
                 TextColumn::make('role')->sortable(),
             ])

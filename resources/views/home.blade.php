@@ -8,7 +8,7 @@
     <div class="relative z-10 text-center px-4">
         <!-- Headline -->
         <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6" data-aos="fade-up">
-            Welcome to Danix Solutions
+            Welcome to Adongo Solutions
         </h1>
 
         <!-- Subtext -->
@@ -26,7 +26,7 @@
             <a href="https://www.linkedin.com/company/danixsolutions/" target="_blank" class="text-white hover:text-blue-400 transition">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M20.452 20.452h-3.555v-5.569c0-1.328-.024-3.041-1.853-3.041-1.853 0-2.136 1.447-2.136 2.941v5.669H9.353V9h3.414v1.561h.048c.476-.898 1.637-1.848 3.368-1.848 3.6 0 4.266 2.369 4.266 5.452v6.287zM5.337 7.433c-1.144 0-2.069-.927-2.069-2.069 0-1.144.926-2.069 2.069-2.069s2.069.926 2.069 2.069c0 1.142-.925 2.069-2.069 2.069zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.553C0 23.228.792 24 1.771 24h20.451C23.2 24 24 23.228 24 22.276V1.723C24 .771 23.2 0 22.225 0z"/></svg>
             </a>
-            <a href="https://wa.me/233501027131" target="_blank" class="text-white hover:text-green-400 transition">
+            <a href="https://wa.me/233240161959" target="_blank" class="text-white hover:text-green-400 transition">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 32 32"><path d="M16 .396C7.164.396.396 7.164.396 16c0 2.822.736 5.574 2.133 7.998L.4 31.604l7.771-2.108A15.489 15.489 0 0 0 16 31.604c8.837 0 15.604-6.768 15.604-15.604C31.604 7.164 24.837.396 16 .396zm0 28.79c-2.563 0-5.065-.678-7.259-1.958l-.518-.308-4.613 1.253 1.233-4.492-.338-.553a13.262 13.262 0 0 1-2.026-7.031c0-7.312 5.946-13.259 13.259-13.259 7.313 0 13.259 5.947 13.259 13.259.001 7.313-5.946 13.259-13.259 13.259zm7.158-9.8c-.392-.196-2.314-1.14-2.672-1.268-.358-.13-.618-.196-.878.196-.259.392-1.01 1.267-1.24 1.527-.23.26-.459.294-.851.098-.392-.196-1.656-.61-3.153-1.946-1.165-1.039-1.949-2.321-2.178-2.713-.23-.392-.025-.604.171-.8.175-.175.392-.458.588-.688.196-.23.261-.392.392-.653.13-.261.065-.49-.033-.688-.098-.196-.878-2.12-1.203-2.896-.317-.763-.64-.66-.878-.67-.23-.01-.49-.012-.75-.012s-.688.098-1.047.49c-.359.392-1.374 1.343-1.374 3.276 0 1.934 1.406 3.801 1.602 4.063.196.261 2.767 4.22 6.712 5.914.938.403 1.67.642 2.24.82.941.3 1.798.258 2.475.157.755-.113 2.314-.946 2.642-1.86.326-.914.326-1.699.23-1.86-.098-.163-.358-.259-.75-.457z"/></svg>
             </a>
             <a href="https://www.instagram.com/danixsolutions/" target="_blank" class="text-white hover:text-pink-400 transition">
@@ -87,24 +87,25 @@
             </p>
         </div>
 
-        <!-- Services Grid -->
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            <!-- Service Card -->
-            @foreach ([
-                ['title' => 'Web Design & Development', 'icon' => '💻', 'desc' => 'We create fast, modern, mobile-first websites that make an impact.'],
-                ['title' => 'UI/UX Design', 'icon' => '🎨', 'desc' => 'Human-centered design focused on clarity, usability, and brand alignment.'],
-                ['title' => 'Graphic Design', 'icon' => '🖼️', 'desc' => 'Designs that visually communicate your message and mission.'],
-                ['title' => 'Digital Marketing', 'icon' => '📈', 'desc' => 'Targeted online campaigns to grow your brand and reach new customers.'],
-                ['title' => 'Brand Strategy', 'icon' => '🚀', 'desc' => 'We help define and position your brand with clarity and confidence.'],
-                ['title' => 'Social Media Management', 'icon' => '📱', 'desc' => 'End-to-end management of your digital presence across platforms.']
-            ] as $index => $service)
-                <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="text-4xl mb-4">{{ $service['icon'] }}</div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $service['title'] }}</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">{{ $service['desc'] }}</p>
-                </div>
-            @endforeach
+     <!-- Services Grid -->
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    @foreach ($services as $index => $service)
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+            <div class="text-4xl mb-4">
+                @if ($service->icon_type === 'emoji')
+                    {{ $service->icon }}
+                @elseif ($service->icon_type === 'svg' && $service->icon_path)
+                    <img src="{{ asset('storage/' . $service->icon_path) }}" alt="icon" class="w-10 h-10 inline-block">
+                @else
+                    💼 <!-- default fallback -->
+                @endif
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ $service->title }}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{{ $service->description }}</p>
         </div>
+    @endforeach
+</div>
+
     </div>
 </section>
 
@@ -152,46 +153,40 @@
 </div>
 
 <!-- Testimonials Section -->
-<section id="testimonials" class="py-20 bg-gray-100">
+<section class="py-20 bg-gray-100">
     <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <!-- Heading -->
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Testimonials</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">
-                Hear what our happy clients have to say about working with us.
-            </p>
-        </div>
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-aos="fade-up">What Our Clients Say</h2>
 
-        <!-- Swiper Container -->
-        <div class="swiper" data-aos="fade-up">
-            <div class="swiper-wrapper">
-
-                @foreach ([
-                    ['avatar' => 'client1.jpg', 'name' => 'Richard Appiah', 'role' => 'CEO, Appsy Ltd.', 'quote' => 'Working with Danix Solutions was one of the best business decisions we made. Our website looks and performs incredibly.'],
-                    ['avatar' => 'client2.jpg', 'name' => 'Sarah Boateng', 'role' => 'Marketing Lead, Ghana Events', 'quote' => 'They brought our vision to life! The team was professional, timely, and extremely creative.'],
-                    ['avatar' => 'client3.jpg', 'name' => 'Michael Osei', 'role' => 'Founder, LearnXpress', 'quote' => 'We saw instant results in our engagement after launching with Danix. They understand the digital space better than most.'],
-                ] as $index => $testimonial)
-                    <div class="swiper-slide">
-                        <div class="bg-white rounded-lg p-6 shadow hover:shadow-lg transition mx-4">
-                            <div class="flex items-center mb-4">
-                                <img src="{{ asset('images/testimonials/' . $testimonial['avatar']) }}" alt="{{ $testimonial['name'] }}" class="w-14 h-14 rounded-full mr-4 object-cover">
-                                <div>
-                                    <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial['name'] }}</h4>
-                                    <span class="text-sm text-gray-500">{{ $testimonial['role'] }}</span>
-                                </div>
-                            </div>
-                            <p class="text-gray-600 text-sm italic">"{{ $testimonial['quote'] }}"</p>
-                        </div>
-                    </div>
-                @endforeach
-
+     <!-- Mobile Slider -->
+<div class="md:hidden swiper" data-aos="fade-up">
+    <div class="swiper-wrapper">
+        @foreach ($testimonials as $testimonial)
+            <div class="swiper-slide bg-white rounded-lg shadow p-6 text-center">
+                <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="mx-auto w-20 h-20 rounded-full object-cover mb-4">
+                <p class="text-gray-700 italic mb-3">"{{ $testimonial->message }}"</p>
+                <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}</h4>
+                <p class="text-sm text-blue-600">{{ $testimonial->role }}</p>
             </div>
+        @endforeach
+    </div>
+    <div class="swiper-pagination mt-4"></div>
+</div>
 
-            <!-- Pagination Dots -->
-            <div class="swiper-pagination mt-6"></div>
+<!-- Desktop Grid -->
+<div class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+    @foreach ($testimonials as $testimonial)
+        <div class="bg-white rounded-lg shadow p-6 text-center">
+            <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="mx-auto w-20 h-20 rounded-full object-cover mb-4">
+            <p class="text-gray-700 italic mb-3">"{{ $testimonial->message }}"</p>
+            <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}</h4>
+            <p class="text-sm text-blue-600">{{ $testimonial->role }}</p>
         </div>
+    @endforeach
+</div>
+
     </div>
 </section>
+
 
 
 <!-- SVG Divider -->
@@ -214,25 +209,36 @@
 
         <!-- Team Grid -->
         <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
-            @foreach ([
-                ['image' => 'team1.jpg', 'name' => 'Daniel Adongo', 'role' => 'Founder & Lead Developer', 'linkedin' => 'https://www.linkedin.com/in/danieladongo/'],
-                ['image' => 'team2.jpg', 'name' => 'Esi Kafui', 'role' => 'UI/UX Designer', 'linkedin' => '#'],
-                ['image' => 'team3.jpg', 'name' => 'Kwame Boateng', 'role' => 'Marketing Strategist', 'linkedin' => '#'],
-            ] as $index => $member)
-                <div class="group bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="relative">
-                        <img src="{{ asset('images/team/' . $member['image']) }}" alt="{{ $member['name'] }}" class="rounded-lg object-cover h-64 w-full mb-4">
-                        <a href="{{ $member['linkedin'] }}" target="_blank" class="absolute bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
-                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.568c0-1.327-.025-3.041-1.852-3.041-1.853 0-2.136 1.446-2.136 2.941v5.669H9.354V9h3.414v1.561h.049c.476-.898 1.636-1.848 3.367-1.848 3.6 0 4.266 2.368 4.266 5.451v6.288zM5.337 7.433c-1.144 0-2.069-.927-2.069-2.07 0-1.142.925-2.069 2.069-2.069s2.069.927 2.069 2.069c0 1.143-.925 2.07-2.069 2.07zM6.777 20.452H3.896V9h2.881v11.452z"/></svg>
+    @foreach ($teamMembers as $index => $member)
+        <div class="group bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
+            <div class="relative">
+                <img src="{{ asset('storage/team/' . $member->image) }}" alt="{{ $member->name }}" class="rounded-lg object-cover h-64 w-full mb-4">
+                @if ($member->linkedin)
+                    <a href="{{ $member->linkedin }}" target="_blank" class="absolute bottom-4 right-4 bg-blue-600 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                    </a>
+                @endif
+            </div>
+            <div class="text-center">
+                <h4 class="text-lg font-semibold text-gray-800">{{ $member->name }}</h4>
+                <p class="text-sm text-gray-500">{{ $member->role }}</p>
+                <div class="flex justify-center space-x-4 mt-2">
+                    @if ($member->whatsapp)
+                        <a href="{{ $member->whatsapp }}" target="_blank" class="text-green-600 hover:text-green-800">
+                            <i class="fab fa-whatsapp fa-lg"></i>
                         </a>
-                    </div>
-                    <div class="text-center">
-                        <h4 class="text-lg font-semibold text-gray-800">{{ $member['name'] }}</h4>
-                        <p class="text-sm text-gray-500">{{ $member['role'] }}</p>
-                    </div>
+                    @endif
+                    @if ($member->instagram)
+                        <a href="{{ $member->instagram }}" target="_blank" class="text-pink-500 hover:text-pink-700">
+                            <i class="fab fa-instagram fa-lg"></i>
+                        </a>
+                    @endif
                 </div>
-            @endforeach
+            </div>
         </div>
+    @endforeach
+</div>
+
     </div>
 </section>
 
@@ -283,6 +289,11 @@
                     <div>
                         <input type="email" name="email" placeholder="Your Email" required
                             class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+
+                    <div>
+                        <input type="text" name="phone" placeholder="Phone" required
+                         class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     <div>
                         <input type="text" name="subject" placeholder="Subject" required
