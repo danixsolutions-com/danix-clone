@@ -8,7 +8,7 @@
     <div class="relative z-10 text-center px-4">
         <!-- Headline -->
         <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6" data-aos="fade-up">
-            Welcome to Adongo Solutions
+            Welcome to Danix Solutions
         </h1>
 
         <!-- Subtext -->
@@ -157,33 +157,32 @@
     <div class="max-w-7xl mx-auto px-4 md:px-6">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-10" data-aos="fade-up">What Our Clients Say</h2>
 
-     <!-- Mobile Slider -->
-<div class="md:hidden swiper" data-aos="fade-up">
-    <div class="swiper-wrapper">
-        @foreach ($testimonials as $testimonial)
-            <div class="swiper-slide bg-white rounded-lg shadow p-6 text-center">
-                <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="mx-auto w-20 h-20 rounded-full object-cover mb-4">
-                <p class="text-gray-700 italic mb-3">"{{ $testimonial->message }}"</p>
-                <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}</h4>
-                <p class="text-sm text-blue-600">{{ $testimonial->role }}</p>
+        <!-- Mobile Slider -->
+        <div class="md:hidden swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+                @foreach ($testimonials as $testimonial)
+                    <div class="swiper-slide bg-white rounded-lg shadow p-6 text-center">
+                        <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="mx-auto w-20 h-20 rounded-full object-cover mb-4">
+                        <p class="text-gray-700 italic mb-3">"{{ $testimonial->message }}"</p>
+                        <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}</h4>
+                        <p class="text-sm text-blue-600">{{ $testimonial->role }}</p>
+                    </div>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-    <div class="swiper-pagination mt-4"></div>
-</div>
-
-<!-- Desktop Grid -->
-<div class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
-    @foreach ($testimonials as $testimonial)
-        <div class="bg-white rounded-lg shadow p-6 text-center">
-            <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="mx-auto w-20 h-20 rounded-full object-cover mb-4">
-            <p class="text-gray-700 italic mb-3">"{{ $testimonial->message }}"</p>
-            <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}</h4>
-            <p class="text-sm text-blue-600">{{ $testimonial->role }}</p>
+            <div class="swiper-pagination mt-4"></div>
         </div>
-    @endforeach
-</div>
 
+        <!-- Desktop Grid -->
+        <div class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+            @foreach ($testimonials as $testimonial)
+                <div class="bg-white rounded-lg shadow p-6 text-center">
+                    <img src="{{ asset('storage/testimonials/' . $testimonial->image) }}" alt="{{ $testimonial->name }}" class="mx-auto w-20 h-20 rounded-full object-cover mb-4">
+                    <p class="text-gray-700 italic mb-3">"{{ $testimonial->message }}"</p>
+                    <h4 class="text-lg font-semibold text-gray-800">{{ $testimonial->name }}</h4>
+                    <p class="text-sm text-blue-600">{{ $testimonial->role }}</p>
+                </div>
+            @endforeach
+        </div>
     </div>
 </section>
 
